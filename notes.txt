@@ -1,0 +1,46 @@
+notes.txt
+
+dataset: https://github.com/fcakyon/instafake-dataset
+    - paper: https://arxiv.org/pdf/1910.03090.pdf
+
+link to our github project: https://github.com/EricAn156/298
+
+FAKE ACCOUNT: Account which purchases interactions (bot followers, bot likes, etc.)
+AUTOMATED ACCOUNT: Accounts which themselves are bots
+
+Fake Account Detection Features
+    user_media_count - Total number of posts, an account has.
+    user_follower_count - Total number of followers, an account has.
+    user_following_count - Total number of followings, an account has.
+    user_has_profil_pic - Whether an account has a profil picture, or not.
+    user_is_private - Whether an account is a private profile, or not.
+    user_biography_length - Number of characters present in account biography.
+    username_length - Number of characters present in account username.
+    username_digit_count - Number of digits present in account username.
+    is_fake - True, if account is a spam/fake account, False otherwise
+
+Automated Account Detection Features
+    user_media_count - Total number of posts, an account has.
+    user_follower_count - Total number of followers, an account has.
+    user_following_count - Total number of followings, an account has.
+    //user_has_highlight_reels - Whether an account has at least one highlight reel present, or not.
+    user_has_url - Whether an account has an url present in biography, or not.
+    user_biography_length - Number of characters present in account biography.
+    username_length - Number of characters present in account username.
+    username_digit_count - Number of digits present in account username.
+    //media_comment_numbers - Avg number of comments for a given media.
+    //media_comments_are_disabled - Whether given media is closed for comments, or not.
+    //media_has_location_info - Whether given media includes location, or not.
+    //media_hashtag_numbers - Avg number of hashtags, given media has.
+    //automated_behaviour - True, if account is an automated account, False otherwise
+
+to remove: ['user_has_highlight_reels', 'media_comment_numbers', 'media_comments_are_disabled', 'media_has_location_info', 'media_hashtag_numbers']
+keep: ['userMediaCount', 'userFollowerCount', 'userFollowingCount', 'userHasExternalUrl', 'userBiographyLength', 'usernameLength', 'usernameDigitCount', 'automatedBehaviour']
+--------------------------------------------------------------------------------
+To do: 
+Separately: 
+- collect the above features from followers in our own accounts
+- create a classifier for automated accounts first (we can just run the bot classifier on our following or something)
+
+linear classifier 306 correct, out of 350 , accuracy: 0.8742857142857143
+MLP 303 correct out of 350 , accuracy: 0.8657142857142858
